@@ -28,9 +28,13 @@ Template.afFormGroup.helpers({
 
     // Get the field's schema definition
     var fieldSchema = AutoForm.getSchemaForField(c.atts.name);
-    let labelText = null;
+    
+    // Get the label, use defaultLabel if defined
+    var labelText = null;
     if (typeof c.atts.label === 'string') {
       labelText = c.atts.label;
+    } else if (typeof c.defs.label === 'string') {
+      labelText = c.defs.label;
     } else if (typeof SimpleSchema.defaultLabel === "function") {
       labelText = SimpleSchema.defaultLabel(c.atts.name);
     }
