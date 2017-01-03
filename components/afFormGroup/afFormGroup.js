@@ -32,7 +32,7 @@ Template.afFormGroup.helpers({
     if (typeof c.atts.label === 'string') {
       labelText = c.atts.label;
     } else if (typeof SimpleSchema.defaultLabel === "function") {
-      return SimpleSchema.defaultLabel(c.atts.name);
+      labelText = SimpleSchema.defaultLabel(c.atts.name);
     }
 
     return {
